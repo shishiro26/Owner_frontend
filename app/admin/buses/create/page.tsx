@@ -45,7 +45,7 @@ export default function CreateBusPage() {
     setLoadingOwners(true);
     try {
       const response = await fetch(
-        "http://localhost:5000/api/users?page=1&limit=100&sort=name&filter=Owner"
+        "${process.env.NEXT_PUBLIC_API_URL}/api/users?page=1&limit=100&sort=name&filter=Owner"
       );
       const data = await response.json();
       setOwners(data.users); // Store owners in state
@@ -60,7 +60,7 @@ export default function CreateBusPage() {
     setLoadingStaff(true);
     try {
       const response = await fetch(
-        "http://localhost:5000/api/users?page=1&limit=100&sort=name&filter=Staff"
+        "${process.env.NEXT_PUBLIC_API_URL}/api/users?page=1&limit=100&sort=name&filter=Staff"
       );
       const data = await response.json();
       setStaff(data.users); // Store owners in state
@@ -75,7 +75,7 @@ export default function CreateBusPage() {
     try {
         console.log("------------------");
       const response = await fetch(
-        "http://localhost:5000/api/cities/list?page=1&limit=100"
+        "${process.env.NEXT_PUBLIC_API_URL}/api/cities/list?page=1&limit=100"
       );
       const data = await response.json();
       setCities(data.cities);
@@ -166,7 +166,7 @@ export default function CreateBusPage() {
     console.log(payload);
 
     try {
-      const response = await fetch("http://localhost:5000/api/bus/add", {
+      const response = await fetch("${process.env.NEXT_PUBLIC_API_URL}/api/bus/add", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

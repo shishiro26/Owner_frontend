@@ -96,7 +96,7 @@ export default function CreateCityPage() {
 
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/cities/create",
+        "${process.env.NEXT_PUBLIC_API_URL}/api/cities/create",
         {
           cityName: formData.cityName,
           cityPincode: formData.cityPincode,
